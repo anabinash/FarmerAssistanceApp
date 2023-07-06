@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: supplier
+spec:
+  selector:
+    matchLabels:
+      app: supplier
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: supplier
+    spec:
+      containers:
+      - name: supplier
+        image: prateek73/supplier:v3
+        ports:
+        - containerPort: 8200

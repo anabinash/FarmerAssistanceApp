@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: farmer
+spec:
+  selector:
+    matchLabels:
+      app: farmer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: farmer
+    spec:
+      containers:
+      - name: farmer
+        image: prateek73/farmer:v3
+        ports:
+        - containerPort: 8100
